@@ -10,16 +10,15 @@ This action runs an ansible playbook
 Here's an example:
 
 ```yaml
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Run playbook
-        uses: jawher/action-ansible@2.9.7
-        env:
-          ANSIBLE_SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-        with:
-          args: ansible-playbook -i deploy/inventories/ci.yml deploy/playbook.yml
+- name: Checkout
+  uses: actions/checkout@v2
+- name: Run playbook
+  uses: phamthaibaoduy/action-ansible@master
+  env:
+    ANSIBLE_SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+  with:
+    args: ansible-playbook -i deploy/inventories/ci.yml deploy/playbook.yml
 ```
-
 
 ### Secrets
 
